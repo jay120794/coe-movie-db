@@ -57,15 +57,19 @@ $(function() {
         data.results.forEach(function(movie) {
             var imageSrc = config.images.base_url + config.images.poster_sizes[2] + movie.poster_path;
             var htmlStr = [ 
-                            '<li>',
-                                '<h3>',
-                                    '<a href="#">' + movie.title +'</a>',
+                                '<div style="width: 1300px;">',
+                                '<li class="col-md-6">',
+                                '<div id="mario">',
+                                '<h3 style="margin-left: 200px; margin-top:10px;">',
+                                    '<a href="#" style="color: #fffff0;">' + movie.title +'</a>',
                                 '</h3>',
-                                '<p>' + movie.release_date + '</p>',
+                                '<p style="margin-left: 200px; color: #e5dfc5;"> Release date: ' + movie.release_date + '</p>',
                                 '<a href="#">',
-                                    '<img class="img-responsive" src="' + imageSrc + '" alt="">',
+                                    '<img class="img-responsive" src="' + imageSrc + '" alt="" style="margin-top:-70px;">',
                                 '</a>',
-                            '</li>'
+                                '</div>', 
+                                '</li>',
+                                '</div>',
                             ];
             $('.movies-list').append($(htmlStr.join('')));
         });

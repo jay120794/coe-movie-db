@@ -1,0 +1,22 @@
+body {
+	background-image: url(http://cdn.desktopwallpapers4.me/wallpapers/abstract/1920x1080/2/18498-black-texture-1920x1080-abstract-wallpaper.jpg);
+	background-attachment: fixed;
+	background-position: fixed;
+	background-repeat: none;
+}
+
+#mario {
+	background-color: green;
+	width: 600px;
+	background-color: rgba(110, 110, 110, 0.4);
+	display: inline-block;
+	margin-right: 50px;
+	margin-left: -50px;
+	padding-right: 40px;
+	padding-left: 40px;
+	position: relative;
+	height: 350px;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	padding-top: 30px;
+}

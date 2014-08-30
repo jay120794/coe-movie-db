@@ -86,13 +86,15 @@ function movieBasic(id){
             var allMovies = "";
             var poster = config.images.base_url + config.images.poster_sizes[1];
             for(var i=0;i<movies.length;i++){
-                allMovies += '<div class="col-sm-3 col-xs-6">'+
+                allMovies += '<div id="mario">'+
+                                '<li class="col-lg-6">'+
                                 '<a href="/movie/'+movies[i].id+'">'+
                                     '<img class="img-responsive portfolio-item" src="'+poster+movies[i].poster_path+'" alt="">'+
                                 '</a>'+
                                 '<h5>'+
                                     '<a href="/movie/'+movies[i].id+'">'+movies[i].title+'</a>'+
                                 '</h5>'+
+                                '</li>'+
                               '</div>';
             }
             $("#similar").html(allMovies);
@@ -105,17 +107,15 @@ function movieBasic(id){
            
             data.results.forEach(function(movie){
             var imageSrc = config.images.base_url + config.images.poster_sizes[3] + movie.poster_path;
-               var htmlStr = [
-                            '<div class="col-md-4 portfolio-item">',
-                                '<a href="/view/'+movie.id+'">',
-                                    '<img class="img-responsive movieinfo" src="' + imageSrc + '" alt="" style="width: 500; height:500;">',
-                                '</a>',
-                                '<h4>',
-                                    '<a href="/view/'+movie.id+'">'+movie.title+'</a>',
-                                '</h3>',
-                            '</div>'
-                            ];
-            $('.movies-list').append($(htmlStr.join('')));
+            var result = {
+                "id" : movie.id,
+                "img" : imageSrc,
+                "title" : movie.title,
+            };
+            var rawTpl = $('#tpl-movie-list').html();
+            var template = Handlebars.compile(rawTpl);
+            var markup = template(result);
+            $('.movies-list').append(markup);
  
            
            });

@@ -5,7 +5,11 @@
     <link rel="stylesheet" type="text/css" href="/static/css/movie.css">
     <script src="/static/js/vendors/jquery.js"></script>
     <script src="/static/js/vendors/bootstrap.min.js"></script>
+    <script src="/static/js/vendors/handlebars.js"></script>
     <script src="/static/js/app.js"></script>
+
+    
+
 </head>
 
 <body>
@@ -26,7 +30,7 @@
               <li><a href="javascript:void(0)" class='btn-now-showing'>Now Showing</a></li>
               <li><a href="javascript:void(0)" class='btn-upcoming-list'>Upcoming List</a></li>
               <li><a href="javascript:void(0)" class='btn-popular-list'>Popular List</a></li>
-              <li><a href="javascript:void(0)" class='btn-top-rated'>Top Rated</a></li>
+              <li><a href="javascript:void(0)" class='btn-toprated-list'>Top Rated</a></li>
             </ul>
             <form class="navbar-form navbar-right" role="search" id='form-search'>
                 <div class="form-group">
@@ -38,12 +42,26 @@
               </div>
             </div>
            
-        <div class="container" style='top: 70px; position: relative;'>      
+        <div class="container" style='top: 70px; position: relative;'>   
+          {% raw %}   
           <ol class='row movies-list'>
-
+          
           
         </div><!-- /.container -->
 
+        <script type="text/x-handlebars-template" id="tpl-movie-list">
+          
+            <div class="col-md-4 portfolio-item">
+                        <a href="/view/{{id}}">
+                      <img class="img-responsive movieinfo" src= "{{image}}"  alt="" style="width: 500; height:500;">
+                    </a>
+                  <h4>
+                <a href="/view/{{id}}">{{ title}}</a>
+              </h3>
+            </div>
+        
+        </script>
+        {% endraw %}  
 
 </body>
 

@@ -6,9 +6,8 @@ body {
 }
 
 #mario {
-	background-color: green;
 	width: 600px;
-	background-color: rgba(110, 110, 110, 0.4);
+	background-color: rgba(0,0,0, 0.5);
 	display: inline-block;
 	margin-right: 50px;
 	margin-left: -50px;

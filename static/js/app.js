@@ -67,7 +67,7 @@ function movieBasic(id){
  
         url = baseUrl + "movie/"+id+"/videos";
         $.get(url,reqParam,function(response){
-            var html = '<embed width="750" height="500" src="https://www.youtube.com/v/'+response.results[0].key+'" type="application/x-shockwave-flash">'
+            var html = '<embed width="540" height="400" src="https://www.youtube.com/v/'+response.results[0].key+'" type="application/x-shockwave-flash">'
             $("#trailer").html(html);
         });
  
@@ -88,7 +88,7 @@ function movieBasic(id){
             for(var i=0;i<movies.length;i++){
                 allMovies += '<div class="col-sm-3 col-xs-6">'+
                                 '<a href="/movie/'+movies[i].id+'">'+
-                                    '<img class="img-responsive portfolio-item" src="'+poster+movies[i].poster_path+'" alt="">'+
+                                    '<img class="img-responsive portfolio-item" src="'+poster+movies[i].poster_path+'" alt="" style="width: 500px;">'+
                                 '</a>'+
                                 '<h5>'+
                                     '<a href="/movie/'+movies[i].id+'">'+movies[i].title+'</a>'+
@@ -106,14 +106,19 @@ function movieBasic(id){
             data.results.forEach(function(movie){
             var imageSrc = config.images.base_url + config.images.poster_sizes[3] + movie.poster_path;
                var htmlStr = [
-                            '<div class="col-md-4 portfolio-item">',
-                                '<a href="/view/'+movie.id+'">',
-                                    '<img class="img-responsive movieinfo" src="' + imageSrc + '" alt="" style="width: 500; height:500;">',
-                                '</a>',
-                                '<h4>',
-                                    '<a href="/view/'+movie.id+'">'+movie.title+'</a>',
-                                '</h3>',
-                            '</div>'
+                            '<div style="width: 1300px;">',
+                            '<li class="col-md-6">',
+                            '<div id="mario">',
+                            '<h3 style="margin-left: 200px; margin-top:10px;">',
+                                '<a href="/view/'+movie.id+'" style="color: #fffff0;">' + movie.title +'</a>',
+                            '</h3>',
+                            '<p style="margin-left: 200px; color: #e5dfc5;"> Release date: ' + movie.release_date + '</p>',
+                            '<a href="/view/'+movie.id+'">',
+                                '<img class="img-responsive" src="' + imageSrc + '" alt="" style="margin-top:-70px; width: 190px; height: 280px;">',
+                            '</a>',
+                            '</div>', 
+                            '</li>',
+                            '</div>',
                             ];
             $('.movies-list').append($(htmlStr.join('')));
  

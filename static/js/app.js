@@ -86,13 +86,15 @@ function movieBasic(id){
             var allMovies = "";
             var poster = config.images.base_url + config.images.poster_sizes[1];
             for(var i=0;i<movies.length;i++){
-                allMovies += '<div class="col-sm-3 col-xs-6">'+
+                allMovies += '<div>'+
+                                '<li class="col-md-6">'+
                                 '<a href="/movie/'+movies[i].id+'">'+
                                     '<img class="img-responsive portfolio-item" src="'+poster+movies[i].poster_path+'" alt="" style="width: 500px;">'+
                                 '</a>'+
                                 '<h5>'+
                                     '<a href="/movie/'+movies[i].id+'">'+movies[i].title+'</a>'+
                                 '</h5>'+
+                                '</li>'+
                               '</div>';
             }
             $("#similar").html(allMovies);
@@ -105,6 +107,7 @@ function movieBasic(id){
            
             data.results.forEach(function(movie){
             var imageSrc = config.images.base_url + config.images.poster_sizes[3] + movie.poster_path;
+
                var htmlStr = [
                             '<div style="width: 1300px;">',
                             '<li class="col-md-6">',
@@ -121,6 +124,16 @@ function movieBasic(id){
                             '</div>',
                             ];
             $('.movies-list').append($(htmlStr.join('')));
+
+            var result = {
+                "id" : movie.id,
+                "img" : imageSrc,
+                "title" : movie.title,
+            };
+            var rawTpl = $('#tpl-movie-list').html();
+            var template = Handlebars.compile(rawTpl);
+            var markup = template(result);
+            $('.movies-list').append(markup);
  
            
            });

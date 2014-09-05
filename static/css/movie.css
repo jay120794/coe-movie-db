@@ -1,8 +1,10 @@
 body {
-	background-image: url(http://cdn.desktopwallpapers4.me/wallpapers/abstract/1920x1080/2/18498-black-texture-1920x1080-abstract-wallpaper.jpg);
+	background-image: url(http://hdwallpaper.co.in/wallpapers/hd-abstract-background-5-1920x1080.jpg);
 	background-attachment: fixed;
 	background-position: fixed;
 	background-repeat: none;
+	height: 500px;
+	width: 900px;
 }
 
 #mario {
@@ -18,4 +20,28 @@ body {
 	margin-bottom: 30px;
 	margin-top: 30px;
 	padding-top: 30px;
+}
+
+#tinypic {
+	position: absolute; 
+	height: 90px; 
+	width: 85px; 
+	padding-left:25px; 
+	padding-bottom: 5px; 
+	margin-top: 210px;
+}
+
+#backdrop {
+	width: 450;
+	height:300; 
+	z-index: -1; 
+	position: relative;
+	border: solid 1px #fffff0;
+	margin: 10px;
+}
+
+#title {
+	position: absolute; 
+	margin-top: -105px; 
+	margin-left: 100px;
 }

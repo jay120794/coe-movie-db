@@ -46,15 +46,16 @@
 
         <script type="text/x-handlebars-template" id="tpl-movie-list">
           
-            <div class="col-md-4 portfolio-item">
-                      <a href="/view/{{id}}">
-                      <img class="img-responsive movieinfo" src= "{{img}}"  alt="">
-                      <img class="img-responsive movieinfo" src= "{{backdrop}}"  alt="" style="width: 500; height:500; z-index: -1;">
-                      
-                    </a>
-                  <h4>
-                <a href="/view/{{id}}">{{ title}}</a>
-              </h3>
+            <div class="col-md-6 portfolio-item">
+                  <a href="/view/{{id}}">
+                    <img class="img-responsive movieinfo" src= "{{img}}"  alt="" id="tinypic">
+                    <img class="img-responsive movieinfo" src= "{{backdrop}}"  alt="" id="backdrop">
+                  </a>
+                  <div>
+                    <h4 id="title">
+                      <a href="/view/{{id}}">{{ title}}</a>
+                    </h4>
+                  </div>
             </div>
         
         </script>

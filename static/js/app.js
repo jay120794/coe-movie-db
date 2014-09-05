@@ -87,9 +87,9 @@ function movieBasic(id){
             var poster = config.images.base_url + config.images.poster_sizes[1];
             for(var i=0;i<movies.length;i++){
                 allMovies += '<div>'+
-                                '<li class="col-md-6">'+
+                                '<li class="col-lg-6">'+
                                 '<a href="/movie/'+movies[i].id+'">'+
-                                    '<img class="img-responsive portfolio-item" src="'+poster+movies[i].poster_path+'" alt="" style="width: 500px;">'+
+                                    '<img class="img-responsive portfolio-item" src="'+poster+movies[i].poster_path+'" alt="">'+
                                 '</a>'+
                                 '<h5>'+
                                     '<a href="/movie/'+movies[i].id+'">'+movies[i].title+'</a>'+

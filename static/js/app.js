@@ -64,6 +64,8 @@ function movieBasic(id){
     $.get(url,reqParam,function(response){
         $("#title").html(response.original_title);
         $("#overview").html(response.overview);
+        $("#tagline").html(response.tagline);
+        $("#votes").html(response.vote_average);
  
         url = baseUrl + "movie/"+id+"/videos";
         $.get(url,reqParam,function(response){
@@ -92,8 +94,8 @@ function movieBasic(id){
 
             for(var i=0;i<response.cast.length;i++){
                 var castSrc = config.images.base_url + config.images.poster_sizes[1] + response.cast[i].profile_path;
-                casts+="<li>"+response.cast[i].name+"</li>",
-                casts+='<img src="'+castSrc+'">'
+                casts+="<li style='margin-left: 60px;'>"+response.cast[i].name+"</li>",
+                casts+='<img src="'+castSrc+'" id="castimg">'
             }
             $("#casts").html(casts);
         });

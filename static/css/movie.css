@@ -45,3 +45,34 @@ body {
 	margin-top: -105px; 
 	margin-left: 100px;
 }
+
+#castimg {
+	width: 50px; 
+	height: 50px; 
+	z-index: -1; 
+	margin-top: -20px; 
+	margin-bottom: 10px;
+	margin-left: -20px;
+}
+
+#castdiv {
+	color: white; 
+	background-color: rgba(0,0,0, 0.5); 
+	position: relative; 
+	clear: right; 
+	width: 350px; 
+	height: 250px; 
+	overflow: scroll; 
+	float: right; 
+	margin-top: 20px; 
+	padding-left: 20px;
+	margin-right: 50px;
+}
+
+#synopsis {
+	color: white; 
+	background-color: 
+	rgba(0,0,0, 0.5); 
+	padding: 20px; 
+	padding-top: 0px;
+}

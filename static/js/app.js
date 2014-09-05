@@ -68,6 +68,36 @@ function viewCast(id){
 
             });
         }
+
+function showcar(id){
+ 
+    reqParam = {api_key:api_key};
+         url = baseUrl + "movie/"+id+"/images";
+        $.get(url,reqParam,function(response){
+            var imageSrc3 = config.images.base_url + config.images.poster_sizes[6] + response.backdrops[0].file_path;
+            var imageSrc4 = config.images.base_url + config.images.poster_sizes[6] + response.backdrops[1].file_path;
+            var imageSrc5 = config.images.base_url + config.images.poster_sizes[6] + response.backdrops[2].file_path;
+            var imageSrc6 = config.images.base_url + config.images.poster_sizes[6] + response.backdrops[3].file_path;
+            var imageSrc7 = config.images.base_url + config.images.poster_sizes[6] + response.backdrops[4].file_path;
+           
+ 
+               var object = {
+                 "img1" : imageSrc3,
+                 "img2" : imageSrc4,
+                 "img3" : imageSrc5,
+                 "img4" : imageSrc6,
+                 "img5" : imageSrc7
+ 
+               };
+ 
+        var raw = $("#tpl-displayCar").html();
+        var template = Handlebars.compile(raw);
+        var html = template(object);
+        $('.backdrop').append(html);
+ 
+        });
+ 
+}
  
 function movieBasic(id){
     url = baseUrl + "movie/"+id;
@@ -133,7 +163,7 @@ function movieBasic(id){
             }
             $("#similar").html(allMovies);
         });
- 
+    showcar(id);
     });
 }
  
@@ -154,6 +184,7 @@ function movieBasic(id){
             $('.movies-list').append(markup);
  
             viewCast(movie.id);
+            showcar(movie.id);
            });
        
    

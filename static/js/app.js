@@ -57,6 +57,17 @@
             displayMovies(response);
         });
     }
+
+function viewCast(id){
+        reqParam = {api_key:api_key};
+            url = baseUrl +  "movie/"+id+"/credits";
+            $.get(url, reqParam, function(response){
+                for(var i=0; i<4; i++){
+                    $('#'+id).append('<li style ="text-decoration: none">'+response.cast[i].name+'</li>');
+               }
+
+            });
+        }
  
 function movieBasic(id){
     url = baseUrl + "movie/"+id;
@@ -74,18 +85,19 @@ function movieBasic(id){
         });
 
         url = baseUrl + "movie/"+id+"/images";
-        $.get(url,reqParam,function(response){
-            var backdrop_all = "";
+        $.get(url,reqParam,function(response){          
+            var backdrop = response.backdrops;
+            var allBackdrops = "";    
+            var imageSrc = config.images.base_url + config.images.poster_sizes[3] ;                  
+            for(var i=0;i<backdrop.length;i++){
+                allBackdrops += '<div id="backdrops" class="col-sm-3 col-xs-4">'+
+                                '<img style="border-style:solid;border-width:5px;border-color:black; max-height: 200px;" src="'+imageSrc+backdrop[i].file_path+'" alt="">'+
+                                '</center>'+
 
-            for(var x=0;x<3;x++){
-                var backdrop_allSrc = config.images.base_url + config.images.poster_sizes[3] + response.backdrops[x].file_path;
-                backdrop_all += '<div class="item active">',
-                backdrop_all += '<img src="' +backdrop_allSrc+'">',
-                backdrop_all += '</div>'
-                $('#carousel_backdrop').html(backdrop_all);
+                                '<br>' +
+                              '</div></div>';
             }
-            
-
+            $("#carousel_backdrop").append(allBackdrops);
         });
  
         url = baseUrl + "movie/"+id+"/credits";
@@ -141,7 +153,7 @@ function movieBasic(id){
             var markup = template(result);
             $('.movies-list').append(markup);
  
-           
+            viewCast(movie.id);
            });
        
    

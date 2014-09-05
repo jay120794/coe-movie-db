@@ -70,15 +70,34 @@ function movieBasic(id){
             var html = '<embed width="540" height="400" src="https://www.youtube.com/v/'+response.results[0].key+'" type="application/x-shockwave-flash">'
             $("#trailer").html(html);
         });
+
+        url = baseUrl + "movie/"+id+"/images";
+        $.get(url,reqParam,function(response){
+            var backdrop_all = "";
+
+            for(var x=0;x<3;x++){
+                var backdrop_allSrc = config.images.base_url + config.images.poster_sizes[3] + response.backdrops[x].file_path;
+                backdrop_all += '<div class="item active">',
+                backdrop_all += '<img src="' +backdrop_allSrc+'">',
+                backdrop_all += '</div>'
+                $('#carousel_backdrop').html(backdrop_all);
+            }
+            
+
+        });
  
         url = baseUrl + "movie/"+id+"/credits";
         $.get(url,reqParam,function(response){
             var casts = "";
+
             for(var i=0;i<response.cast.length;i++){
-                casts+="<li>"+response.cast[i].name+"</li>"
+                var castSrc = config.images.base_url + config.images.poster_sizes[1] + response.cast[i].profile_path;
+                casts+="<li>"+response.cast[i].name+"</li>",
+                casts+='<img src="'+castSrc+'">'
             }
             $("#casts").html(casts);
         });
+
  
         url = baseUrl + "movie/"+id+"/similar";
         $.get(url,reqParam,function(response){
@@ -88,14 +107,15 @@ function movieBasic(id){
             for(var i=0;i<movies.length;i++){
                 allMovies += '<div>'+
                                 '<li class="col-lg-6">'+
-                                '<a href="/movie/'+movies[i].id+'">'+
+                                '<a href="/view/'+movies[i].id+'">'+
                                     '<img class="img-responsive portfolio-item" src="'+poster+movies[i].poster_path+'" alt="">'+
                                 '</a>'+
                                 '<h5>'+
-                                    '<a href="/movie/'+movies[i].id+'">'+movies[i].title+'</a>'+
+                                    '<a href="/view/'+movies[i].id+'">'+movies[i].title+'</a>'+
                                 '</h5>'+
                                 '</li>'+
                               '</div>';
+
             }
             $("#similar").html(allMovies);
         });

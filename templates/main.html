@@ -3,13 +3,7 @@
     <title>Module 6 | Team 15</title>
     <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/static/css/movie.css">
-    <script src="/static/js/vendors/jquery.js"></script>
-    <script src="/static/js/vendors/bootstrap.min.js"></script>
-    <script src="/static/js/vendors/handlebars.js"></script>
-    <script src="/static/js/app.js"></script>
-
-    
-
+  
 </head>
 
 <body>
@@ -45,6 +39,7 @@
         <div class="container" style='top: 70px; position: relative;'>   
           {% raw %}   
           <ol class='row movies-list'>
+            <li id='casts'>
           
           
         </div><!-- /.container -->
@@ -52,8 +47,10 @@
         <script type="text/x-handlebars-template" id="tpl-movie-list">
           
             <div class="col-md-4 portfolio-item">
-                        <a href="/view/{{id}}">
-                      <img class="img-responsive movieinfo" src= "{{image}}"  alt="" style="width: 500; height:500;">
+                      <a href="/view/{{id}}">
+                      <img class="img-responsive movieinfo" src= "{{img}}"  alt="">
+                      <img class="img-responsive movieinfo" src= "{{backdrop}}"  alt="" style="width: 500; height:500; z-index: -1;">
+                      
                     </a>
                   <h4>
                 <a href="/view/{{id}}">{{ title}}</a>
@@ -62,7 +59,10 @@
         
         </script>
         {% endraw %}  
-
+        <script src="/static/js/vendors/jquery.js"></script>
+        <script src="/static/js/vendors/bootstrap.min.js"></script>
+        <script src="/static/js/vendors/handlebars.js"></script>
+        <script src="/static/js/app.js"></script>
 </body>
 
 </html>

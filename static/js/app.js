@@ -106,29 +106,13 @@ function movieBasic(id){
  function displayMovies(data){
            
             data.results.forEach(function(movie){
-            var imageSrc = config.images.base_url + config.images.poster_sizes[3] + movie.poster_path;
-
-               var htmlStr = [
-                            '<div style="width: 1300px;">',
-                            '<li class="col-md-6">',
-                            '<div id="mario">',
-                            '<h3 style="margin-left: 200px; margin-top:10px;">',
-                                '<a href="/view/'+movie.id+'" style="color: #fffff0;">' + movie.title +'</a>',
-                            '</h3>',
-                            '<p style="margin-left: 200px; color: #e5dfc5;"> Release date: ' + movie.release_date + '</p>',
-                            '<a href="/view/'+movie.id+'">',
-                                '<img class="img-responsive" src="' + imageSrc + '" alt="" style="margin-top:-70px; width: 190px; height: 280px;">',
-                            '</a>',
-                            '</div>', 
-                            '</li>',
-                            '</div>',
-                            ];
-            $('.movies-list').append($(htmlStr.join('')));
-
+            var imageSrc = config.images.base_url + config.images.poster_sizes[1] + movie.poster_path;
+            var backdropSrc = config.images.base_url + config.images.poster_sizes[3] + movie.backdrop_path;
             var result = {
                 "id" : movie.id,
                 "img" : imageSrc,
                 "title" : movie.title,
+                "backdrop" : backdropSrc,
             };
             var rawTpl = $('#tpl-movie-list').html();
             var template = Handlebars.compile(rawTpl);

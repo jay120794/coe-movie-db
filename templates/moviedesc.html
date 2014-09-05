@@ -3,12 +3,6 @@
     <title>Module 6 | Team 15</title>
     <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/static/css/movie.css">
-    <script src="/static/js/vendors/jquery.js"></script>
-    <script src="/static/js/vendors/bootstrap.min.js"></script>
-    <script src="/static/js/app.js"></script>
-    <script type="text/javascript">
-      movieBasic("{{id}}");
-    </script>
 </head>
  
 <body>
@@ -100,7 +94,13 @@
         <div class="movie-list" style=" ">
         </div>
     </div><!-- /.container -->
- 
+    <script src="/static/js/vendors/jquery.js"></script>
+    <script src="/static/js/vendors/bootstrap.min.js"></script>
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/vendors/handlebars.js"></script>
+    <script type="text/javascript">
+      movieBasic("{{id}}");
+    </script>
 </body>
  
 </html>

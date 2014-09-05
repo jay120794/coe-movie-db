@@ -76,3 +76,15 @@ body {
 	padding: 20px; 
 	padding-top: 0px;
 }
+
+#tagvote {
+	background-color: rgba(0,0,0,0.5); 
+	clear:left; 
+	float: left; 
+	position: relative; 
+	padding: 20px; 
+	color: white; 
+	margin-left: 15px; 
+	margin-top: 15px; 
+	width: 540px;
+}
